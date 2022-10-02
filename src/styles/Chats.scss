@@ -1,0 +1,81 @@
+@use '/src/styles/base';
+
+.chats-cont{
+	width: 20%;
+	padding: 2rem;
+	.toggle-btn{
+		font-size: 17px;
+		padding: 6px 12px;
+		margin: 1rem 1rem 3rem 0;
+		background-color: #151123;
+		color: base.$lighter-bgcolor;
+		border: 1px solid base.$lighter-bgcolor;
+		border-radius: 12px;
+		outline: none;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	.toggle-btn.active{
+		background-color: #203a63;
+		color: #2e7ccf;
+		border: none;
+	}
+}
+
+#top-nav-chats{
+	width: 100%;
+	i{
+		float: right;
+	}
+	#find-chat{
+		color: #fff;
+	}
+	#create-chat{
+		color: base.$purple;
+		margin-right: 2rem;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	label{
+		color: #fff;
+	}
+}
+.chat-cont{
+	width: 50%;
+}
+#chats-list{
+	.chat{
+		position: relative;
+		height: 4rem;
+		border-radius: 13px;
+		padding: 5px;
+		i{
+			margin: auto 0;
+			height: 2rem;
+		}
+		&:hover{
+			background-color: #181627;
+
+		}
+	}
+	#chat-name{
+		position: absolute;
+		top: 5px;
+		left: 3rem;
+		color: #fff;
+	}
+	#last-activity{
+		position: absolute;
+		color: base.$lighter-bgcolor;
+		bottom: 5px;
+		left: 3rem;
+	}
+	#la-time{
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		color: base.$lighter-bgcolor;
+	}
+}

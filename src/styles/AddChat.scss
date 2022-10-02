@@ -1,0 +1,23 @@
+@use '../styles/base';
+
+#add_chat_container{
+	input{
+		outline: none;
+		border: base.$hr-border;
+		padding: 10px 15px;
+		font-size: 18px;
+		margin-right: 2rem;
+		background-color: base.$lighter-bgcolor;
+		color: #fff;
+	}
+	button{
+		border: none;
+		padding: 10px 15px;
+		font-size: 18px;
+		color: #fff;
+		background-color: base.$purple;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}

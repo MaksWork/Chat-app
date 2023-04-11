@@ -1,0 +1,49 @@
+@use '../../styles/base';
+
+.account_info{
+	width: 93.5%;
+	margin: 0 auto;
+	font-family: 'Poppins', sans-serif;
+	h1{
+		color: #fff;
+	}
+	hr{
+		width: 100%;
+		border: base.$hr-border;
+	}
+	.main_info{
+		margin: 1rem 2rem;
+		display: flex;
+		#acc_info_left{
+			img{
+				width:90%;
+			}
+		}
+		#acc_info_right{
+			height: 60%;
+			margin: auto 2rem;
+			display: flex;
+			flex-direction: column;
+			color: #fff;
+			font-size: 24px;
+			label{
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.friends_info_cont{
+		margin: 2rem;
+		.friend_cont{
+			margin-bottom: 8px;
+			img{
+				width: 4rem;
+				margin-right: 10px;
+			}
+			label{
+				color: #fff;
+				font-size: 20px;
+				vertical-align: top;
+			}
+		}
+	}
+}

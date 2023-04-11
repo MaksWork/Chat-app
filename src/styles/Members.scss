@@ -1,0 +1,57 @@
+@use './base';
+
+#members_main_cont{
+	width: 20%;
+	.swith_cont{
+		width: 100%;
+	}
+	.members_title{
+		width: 100%;
+		padding: 23px;
+		font-size: 18px;
+		color: base.$purple;
+		border-bottom: 1px solid;
+	}
+	
+	.members_cont{
+		label{
+			margin: 30px;
+			color: base.$lighter-bgcolor;
+		}
+		margin-top: 3rem;
+	}
+
+	.member{
+		border-bottom: 1px solid base.$lighter-bgcolor;
+		padding: 6px;
+		padding-bottom: 15px;
+		margin: 10px;
+		display: flex;
+		justify-content: space-between;
+		.member_labels{
+			img{
+				width: 40px;
+				height: 40px;
+				border-radius: 12px;
+			}
+			label{
+				justify-self: flex-start;
+				margin: 0 12px 12px 12px;
+				color: #fff;
+			}
+			display: flex;
+		}
+		.member_btns{
+			
+			button{
+				color: base.$purple;
+				font-size: 24px;
+				background-color: #151123;
+				border: none;
+				&:hover{
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

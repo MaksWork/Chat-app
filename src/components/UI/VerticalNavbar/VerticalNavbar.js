@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Navbar.scss'
+import './VerticalNavbar.scss'
 
-const Navbar = () => {
+const VerticalNavbar = () => {
 	let navigate = useNavigate();
 	
 	return(
 		<div className='nav-bar'>
 			<ul>
-				<li onClick={() => navigate('/messaging')} className='main-menu'><i class="fa-solid fa-bars"></i></li>
-				<li><i class="fa-solid fa-comment-dots"></i></li>
+				<li onClick={() => navigate('/home')} className='main-menu'><i class="fa-solid fa-bars"></i></li>
+				<li onClick={() => navigate('/messaging')}><i class="fa-solid fa-comment-dots"></i></li>
 				<li><i class="fa-solid fa-magnifying-glass"></i></li>
 				<li onClick={() => navigate('/friends')}><i class="fa-solid fa-users"></i></li>
 			</ul>
@@ -17,4 +17,4 @@ const Navbar = () => {
 		</div>
 	)
 }
-export default Navbar
+export default VerticalNavbar

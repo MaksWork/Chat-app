@@ -1,0 +1,28 @@
+.user_bar{
+	margin: 1rem;
+	background-color: #201a35;
+	border-radius: 14px;
+	display: flex;
+	justify-content: space-between;
+	.user_bar_content{
+		padding: 13px;
+	}
+	label{
+		font-size: 24px;
+		color: #fff;
+		vertical-align: top;
+		margin-left: 30px;
+	}
+	img{
+		width: 4rem;
+		border-radius: 50%;
+	}
+	.right-buttons{
+		button{
+			margin: 20px 10px;
+		}
+	}
+}
+.invisible{
+	display: none;
+}

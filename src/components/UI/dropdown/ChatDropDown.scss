@@ -1,0 +1,27 @@
+@use "../../../styles/base";
+
+.drop_down{
+	margin: 10px 0;
+
+	.drop_down_content{
+		display: flex;
+		flex-direction: column;
+		background-color: base.$lighter_bgcolor;
+		padding: 10px 15px;
+	}
+	hr{
+		margin: 10px 0 10px;
+		border: 1px solid #fff;
+	}
+	div{
+		input{
+			width: 15px;
+			height: 15px;
+			float: right;
+		}
+	}
+
+	.invisible{
+		display: none;
+	}
+}

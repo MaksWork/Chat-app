@@ -1,0 +1,11 @@
+@use '../../../styles/base';
+
+.chat_button{
+	border: none;
+	background-color: base.$lighter-bgcolor;
+	color: #fff;
+	padding: 20px;
+	&:hover{
+		cursor: pointer;
+	}
+}

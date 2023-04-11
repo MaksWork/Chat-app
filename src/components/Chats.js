@@ -4,10 +4,9 @@ import React, { useContext, useEffect, useState } from "react";
 import ModalWindow from "./UI/modal/ModalWindow";
 import AddChat from './AddChat';
 import { ChatContext } from '../Contexts';
-import { collection } from 'firebase/firestore';
+import { collection, doc, setDoc, Timestamp } from 'firebase/firestore';
 import ChatSwitch from './ChatSwitch';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { getAuth } from 'firebase/auth';
 
 const Chats = ({setChat}) => {
     let {auth, db} = useContext(ChatContext)
@@ -15,24 +14,42 @@ const Chats = ({setChat}) => {
 	let [visibleModal, setVisibleModal] = useState(false)
 	let [chats, setChats] = useState([])
 	
-	let [test, loaging] = useCollection(collection(db, 'chats'))
+	let [chat, loading] = useCollection(collection(db, 'chats'))
 
 	useEffect(() =>{ 
-		if(test){
+		if(chat){
 			let chatsArray = []
-			test.docs.map((doc) => {
-				chatsArray.push(doc.id)
+			chat.docs.map((doc) => {
+				chatsArray.push({
+					chatName : doc.data().chatName, 
+					chatMembers: doc.data().chatMembers,
+					chatId : doc.id
+				})
 			})
 			setChats(chatsArray)
 		}
-	}, [test])
+	}, [chat])
 
-	const addChat = (chatName) =>{
-		setChats([...chats, chatName])
+	const addChat = async (chatOptions) => {
+		setChats([...chats, chatOptions.chatName]);
+
+		const chatId = Math.random().toString();
+
+		const chatRef = doc(db, 'chats', chatId)
+		
+		await setDoc(chatRef,{
+			chatName: chatOptions.chatName,
+			chatMembers: chatOptions.chatMembers
+		})
+		await setDoc(doc(chatRef, 'messages', chatId),{
+			text: `${auth.currentUser.displayName} created chat "${chatOptions.chatName}"`,
+			createdAt: Timestamp.now(),
+			type: 'info'
+		})
 	}
 
-	const switchChat = (chatName) =>{
-		setChat(chatName)
+	const switchChat = (chatOptions) =>{
+		setChat({...chatOptions});
 	}
 
 	return (
@@ -52,7 +69,11 @@ const Chats = ({setChat}) => {
 			</div>
 			<div id="chats-list">
 				{chats.map(chat =>{
-					return <ChatSwitch key={Math.random()} switchChat={switchChat} chatName={chat}/>
+					return <ChatSwitch 
+						key={Math.random()} 
+						switchChat={switchChat} 
+						chatOptions={chat}
+					/>
 				})}
 			</div>
         </div>

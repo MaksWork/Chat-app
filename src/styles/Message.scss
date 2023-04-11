@@ -1,5 +1,18 @@
 @use '../styles/base';
 
+#info{
+	text-align: center;
+	justify-content: space-around;
+	width: 100%;
+	label{
+		font-size: 14px;
+		color: #8367e9;
+		opacity: .7;
+	}
+	img{
+		display: none;
+	}
+}
 .message{
 	display: flex;
 	width: 40%;
